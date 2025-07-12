@@ -225,7 +225,7 @@ void handleSettingsRequest(AsyncWebServerRequest *request) {
 }
 
 void handleSettingsRequestPut(AsyncWebServerRequest *request, uint8_t *data, size_t len, size_t index, size_t total) {
-    static String body;
+    String body;
     if (index == 0) body = "";
     body += String((const char*)data, len);
     if (index + len != total) return;

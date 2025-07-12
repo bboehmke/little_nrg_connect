@@ -9,6 +9,7 @@
 
 #include "ble_utils.h"
 #include "api.h"
+#include "pantabox_api.h"
 
 // Ethernet server on port 80
 AsyncWebServer server(80);
@@ -40,6 +41,13 @@ void setup() {
     server.on("^\\/api\\/measurements\\/(.+)$", HTTP_GET, handleMeasurementsRequest);
     server.on("^\\/api\\/settings\\/(.+)$", HTTP_GET, handleSettingsRequest);
     server.on("^\\/api\\/settings\\/(.+)$", HTTP_PUT, [](AsyncWebServerRequest *request){}, NULL, handleSettingsRequestPut);
+
+    server.on("^\\/pantabox\\/(.+)\\/(.+)\\/api\\/charger\\/state$", HTTP_GET, handlePantaboxChargerState);
+    server.on("^\\/pantabox\\/(.+)\\/(.+)\\/api\\/charger\\/enabled$", HTTP_GET, handlePantaboxChargerEnabled);
+    server.on("^\\/pantabox\\/(.+)\\/(.+)\\/api\\/meter\\/power$", HTTP_GET, handlePantaboxMeterPower);
+    server.on("^\\/pantabox\\/(.+)\\/(.+)\\/api\\/charger\\/maxcurrent$", HTTP_GET, handlePantaboxChargerMaxCurrent);
+    server.on("^\\/pantabox\\/(.+)\\/(.+)\\/api\\/charger\\/enable$", HTTP_POST, [](AsyncWebServerRequest *request){}, NULL, handlePantaboxChargerEnableSet);
+    server.on("^\\/pantabox\\/(.+)\\/(.+)\\/api\\/charger\\/current$", HTTP_POST, [](AsyncWebServerRequest *request){}, NULL, handlePantaboxChargerCurrentSet);
     server.onNotFound(handleNotFound);
     ElegantOTA.begin(&server);
     server.begin();

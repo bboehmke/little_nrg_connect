@@ -1,4 +1,3 @@
-// api.h
 #pragma once
 #include <ArduinoJson.h>
 #include <ESPAsyncWebServer.h>

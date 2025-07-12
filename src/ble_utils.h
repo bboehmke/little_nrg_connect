@@ -1,9 +1,7 @@
-// ble_utils.h
 #pragma once
 #include <ArduinoBLE.h>
 #include <map>
 #include <Arduino.h>
-
 
 // UUIDs for characteristic
 #define ENERGY_SERVICE "0379e580-ad1b-11e4-8bdd-0002a5d6b15d"

@@ -1,4 +1,3 @@
-// ble_utils.cpp
 #include "ble_utils.h"
 
 BLEDevice scanForTargetDevice(const String& targetAddress) {
