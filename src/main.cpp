@@ -14,6 +14,10 @@
 // Ethernet server on port 80
 AsyncWebServer server(80);
 
+/**
+ * @brief Handles requests for unknown routes and sends a 404 response.
+ * @param request The web server request pointer.
+ */
 void handleNotFound(AsyncWebServerRequest *request) {
     request->send(404, "text/plain", "Not found " + request->url());
 }

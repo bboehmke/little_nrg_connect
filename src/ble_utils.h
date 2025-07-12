@@ -69,12 +69,52 @@ struct __attribute__((packed)) Settings {
     uint8_t PadTail[5];
 };
 
+/**
+ * @brief Scans for a BLE device with the specified MAC address.
+ * @param targetAddress The MAC address of the target BLE device.
+ * @return BLEDevice object if found, otherwise an invalid BLEDevice.
+ */
 BLEDevice scanForTargetDevice(const String& targetAddress);
+
+/**
+ * @brief Connects to the specified BLE device.
+ * @param device Reference to the BLEDevice to connect to.
+ * @return true if connection is successful, false otherwise.
+ */
 bool connectToDevice(BLEDevice& device);
 
+/**
+ * @brief Converts a byte array to an Energy struct.
+ * @param data Pointer to the byte array containing energy data.
+ * @return Energy struct with parsed values.
+ */
 Energy convertEnergy(const uint8_t* data);
+
+/**
+ * @brief Converts a byte array to a Power struct.
+ * @param data Pointer to the byte array containing power data.
+ * @return Power struct with parsed values.
+ */
 Power convertPower(const uint8_t* data);
+
+/**
+ * @brief Converts a byte array to a VoltageCurrent struct.
+ * @param data Pointer to the byte array containing voltage and current data.
+ * @return VoltageCurrent struct with parsed values.
+ */
 VoltageCurrent convertVoltageCurrent(const uint8_t* data);
+
+/**
+ * @brief Converts a byte array to an Info struct.
+ * @param data Pointer to the byte array containing info data.
+ * @return Info struct with parsed values.
+ */
 Info convertInfo(const uint8_t* data);
 
+/**
+ * @brief Converts Info struct and PIN to a Settings struct.
+ * @param info Reference to the Info struct.
+ * @param pin The PIN code to use for settings.
+ * @return Settings struct with values set from Info and PIN.
+ */
 Settings convertToSettings(Info& info, uint16_t pin);

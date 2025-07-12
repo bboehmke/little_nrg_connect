@@ -140,7 +140,6 @@ typedef struct {
     uint8_t BLETransmissionPower;
 } ApiSettings;
 
-
 ApiSettings get_settings(const String& targetAddress) {
     ApiSettings settings;
     settings.Error[0] = 0;
