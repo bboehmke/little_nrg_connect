@@ -15,3 +15,15 @@ This implementation is mainly created from and for the [evcc project](https://gi
 ## Getting Started
 1. Clone this repository.
 2. Build and upload the firmware using PlatformIO.
+
+## Pantabox API
+
+The NRGkick Connect API does not support car detection.
+
+As a workaround also the Pantabox API is implemented and must be configured as:
+```yaml
+chargers:
+  - name: nrgkick
+    type: pantabox
+    uri: http://[IP]/pantabox/[MAC]/[PIN]/
+```
