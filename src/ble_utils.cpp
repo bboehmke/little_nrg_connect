@@ -91,7 +91,7 @@ Settings convertToSettings(Info& info, uint16_t pin) {
     setSettings.KWhPer100 = __builtin_bswap16(info.KWhPer100);
     setSettings.AmountPerKWh = info.AmountPerKWh;
     setSettings.Efficiency = info.Efficiency;
-    setSettings.PauseCharging = info.PauseCharging == 1 ? 0 : 1;
+    setSettings.PauseCharging = info.PauseCharging;
     setSettings.BLETransmissionPower = info.BLETransmissionPower;
     return setSettings;
 }
