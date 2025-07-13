@@ -91,7 +91,7 @@ void handlePantaboxMeterPower(AsyncWebServerRequest *request) {
     }
     Power power = convertPower(powerChar.value());
 
-    String json = String("{\"power\": \"") + String(power.TotalPower) + "\"}";
+    String json = String("{\"power\": \"") + String(power.TotalPower*10) + "\"}";
     request->send(200, "application/json", json);
 }
 
